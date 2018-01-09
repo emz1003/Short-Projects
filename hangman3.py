@@ -1,29 +1,29 @@
 import turtle
 
 def main():
-	## User enters a word. @word is capitalized and put into a list 
+	## User enters a word. @word is capitalized and put into a list
 	word = raw_input('Enter a word: ')
 	print type(word)
 	word = list(word.upper())
 
 
-	## organize word into list.  @wordNoDup holds all the different letters in the word. 
+	## organize word into list.  @wordNoDup holds all the different letters in the word.
 	wordNoDup = list(set(word))
 #	print wordNoDup
-        
+
 	print 100 * '\n'
-	
+
 	##
 	# setup() : Major function that runs smaller functions of setting up
 	#
 	# Pre-condition: word has already been entered and modified
-	# PostCondition: A noose, wordbank and dashes for the correct 
+	# PostCondition: A noose, wordbank and dashes for the correct
 	# 				 letters of @word will be drawn by turtles
 	#/
 	setup(word)
 
 	##
-	# gameGo() : 
+	# gameGo() :
 	gameGo()
 
 #----------------------------------------------------------------------------------------#
@@ -68,17 +68,17 @@ def drawNoose():
 # 											GAMEGO
 #----------------------------------------------------------------------------------------#
 
-	
+
 def gameGo():
 	tries = 6
 	gameStatus = "continue"
 	while gameStatus == "continue":
 		guessWordBool = raw_input("Do you want to guess the word? y/n: ")
-		
-		
+		#s
+
 
 	compareGuess()
 
 def compareGuess():
-	
+
 main()
