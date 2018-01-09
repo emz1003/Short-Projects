@@ -73,6 +73,8 @@ def gameGo():
 	tries = 6
 	gameStatus = "continue"
 	while gameStatus == "continue":
+		guessWordBool = raw_input("Do you want to guess the word? y/n: ")
+		
 		
 
 	compareGuess()
