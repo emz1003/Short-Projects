@@ -71,6 +71,7 @@ def drawNoose():
 
 def gameGo():
 	tries = 6
+	## @gameStatus can be of three strings: "continue", "win", "lose"  
 	gameStatus = "continue"
 	while gameStatus == "continue":
 		guessWordBool = raw_input("Do you want to guess the word? y/n: ")
@@ -84,6 +85,6 @@ def gameGo():
 def guessWord():
 	reqWord = raw_input("What is your guess?")
 	if list(reqWord.upper()) == word:
-	return "continue"
+		return "win"
 
 main()
