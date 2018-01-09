@@ -78,6 +78,7 @@ def gameGo():
 		if guessWordBool == "y":
 			gameStatus = guessWord()
 
-def compareGuess():
+def guessWord():
+	return "continue"
 
 main()
