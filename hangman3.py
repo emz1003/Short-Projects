@@ -74,11 +74,11 @@ def gameGo():
 	gameStatus = "continue"
 	while gameStatus == "continue":
 		guessWordBool = raw_input("Do you want to guess the word? y/n: ")
-		
+		if guessWordBool == "y":
+			gameStatus = guessWord()
+
 		
 
-	compareGuess()
-
-def compareGuess():
 	
+
 main()
