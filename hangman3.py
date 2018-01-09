@@ -68,12 +68,11 @@ def drawNoose():
 # 											GAMEGO
 #----------------------------------------------------------------------------------------#
 
-
 def gameGo():
-	tries = 6
-	## @gameStatus can be of three strings: "continue", "win", "lose"  
+	tries = 0
+	## @gameStatus can be of three strings: "continue", "win", "lose"
 	gameStatus = "continue"
-	while gameStatus == "continue":
+	while gameStatus == "continue" and tries <= 6:
 		guessWordBool = raw_input("Do you want to guess the word? y/n: ")
 
 		if guessWordBool == "y":
@@ -86,5 +85,56 @@ def guessWord():
 	reqWord = raw_input("What is your guess?")
 	if list(reqWord.upper()) == word:
 		return "win"
+	else:
+		print "That's not correct!"
+		drawPerson[tries]
+		tries += 1
 
+drawPerson = [drawHead(),drawBody(), drawLegL(), drawLegR(),drawArmL(),drawArmR()]
+
+def drawHead():
+        head = turtle.Turtle()
+        head.penup()
+        head.color('pink')
+        head.goto(-150,125)
+        head.pendown()
+        head.circle(25)
+def drawBody():
+        body = turtle.Turtle()
+        body.color('blue')
+        body.penup()
+        body.goto(-150, 125)
+        body.right(90)
+        body.pendown()
+        body.forward(75)
+def drawLegL():
+        legL = turtle.Turtle()
+        legL.color('blue')
+        legL.penup()
+        legL.goto(-150, 50)
+        legL.right(120)
+        legL.pendown()
+        legL.forward(50)
+def drawLegR():
+        legR = turtle.Turtle()
+        legR.color('blue')
+        legR.penup()
+        legR.goto(-150, 50)
+        legR.right(60)
+        legR.pendown()
+        legR.forward(50)
+def drawArmL():
+        armL = turtle.Turtle()
+        armL.penup()
+        armL.goto(-150,100)
+        armL.left(135)
+        armL.pendown()
+        armL.forward(50)
+def drawArmR():
+        armR = turtle.Turtle()
+        armR.penup()
+        armR.goto(-150,100)
+        armR.left(45)
+        armR.pendown()
+        armR.forward(50)
 main()
