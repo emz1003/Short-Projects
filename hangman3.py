@@ -78,10 +78,12 @@ def gameGo():
 		if guessWordBool == "y":
 			gameStatus = guessWord()
 		if gameStatus == "continue":
-			
+
 
 
 def guessWord():
+	reqWord = raw_input("What is your guess?")
+	if list(reqWord.upper()) == word:
 	return "continue"
 
 main()
