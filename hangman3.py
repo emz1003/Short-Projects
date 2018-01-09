@@ -74,20 +74,10 @@ def gameGo():
 	gameStatus = "continue"
 	while gameStatus == "continue":
 		guessWordBool = raw_input("Do you want to guess the word? y/n: ")
-<<<<<<< HEAD
-		#s
 
-=======
 		if guessWordBool == "y":
 			gameStatus = guessWord()
->>>>>>> b3000b074281a7ec1f6645930e602c7fbfcae57d
 
-		
-
-<<<<<<< HEAD
 def compareGuess():
-=======
-	
->>>>>>> b3000b074281a7ec1f6645930e602c7fbfcae57d
 
 main()
