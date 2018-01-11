@@ -24,7 +24,7 @@ def main():
 
 	##
 	# gameGo() :
-	gameGo()
+	gameGo(word)
 
 #----------------------------------------------------------------------------------------#
 #										    SETUP
@@ -68,7 +68,7 @@ def drawNoose():
 # 											GAMEGO
 #----------------------------------------------------------------------------------------#
 
-def gameGo():
+def gameGo(word):
 	tries = 0
 	## @gameStatus can be of three strings: "continue", "win", "lose"
 	gameStatus = "continue"
@@ -76,12 +76,25 @@ def gameGo():
 		guessWordBool = raw_input("Do you want to guess the word? y/n: ")
 
 		if guessWordBool == "y":
-			gameStatus = guessWord()
+			gameStatus = guessWord(word,tries)[0]
+#			print guessWord(word, tries)
+
+		## Player guessed correctly .  exit out of loop
+		if gameStatus == "win":
+			break
+
+		## If player didnt guess the word, ask player for a letter guess
 		if gameStatus == "continue":
+			print "We stopped here"
+
+	# #
+	# Deciding game status
+	# #
+	if gameStatus == "win":
+		print "YAY! You win!"
 
 
-
-def guessWord():
+def guessWord(word,tries):
 	reqWord = raw_input("What is your guess?")
 	if list(reqWord.upper()) == word:
 		return "win"
@@ -89,8 +102,7 @@ def guessWord():
 		print "That's not correct!"
 		drawPerson[tries]
 		tries += 1
-
-drawPerson = [drawHead(),drawBody(), drawLegL(), drawLegR(),drawArmL(),drawArmR()]
+		return "continue", tries
 
 def drawHead():
         head = turtle.Turtle()
@@ -137,4 +149,7 @@ def drawArmR():
         armR.left(45)
         armR.pendown()
         armR.forward(50)
+
+drawPerson = [drawHead(),drawBody(), drawLegL(), drawLegR(),drawArmL(),drawArmR()]
+
 main()
