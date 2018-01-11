@@ -32,6 +32,7 @@ def main():
 
 
 def setup(word):
+	print "drawing noose"
 	drawNoose()
 
 #	personI = 0
@@ -73,6 +74,7 @@ def gameGo(word):
 	## @gameStatus can be of three strings: "continue", "win", "lose"
 	gameStatus = "continue"
 	while gameStatus == "continue" and tries <= 6:
+		## @guessWordBool checks to see if player wants to guess a word
 		guessWordBool = raw_input("Do you want to guess the word? y/n: ")
 
 		if guessWordBool == "y":
@@ -85,11 +87,12 @@ def gameGo(word):
 
 		## If player didnt guess the word, ask player for a letter guess
 		if gameStatus == "continue":
-			print "We stopped here"
+			print "Didnt code for guessing letters"
 
 	# #
 	# Deciding game status
 	# #
+	print "jumped out of loop; game status:", gameStatus
 	if gameStatus == "win":
 		print "YAY! You win!"
 
@@ -97,7 +100,8 @@ def gameGo(word):
 def guessWord(word,tries):
 	reqWord = raw_input("What is your guess?")
 	if list(reqWord.upper()) == word:
-		return "win"
+		## NOTE: find a more effecient way to retuern only @gameStatus. returning @tries is not necessary
+		return "win", tries
 	else:
 		print "That's not correct!"
 		drawPerson[tries]
