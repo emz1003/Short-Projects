@@ -88,6 +88,7 @@ def gameGo(word):
 		## If player didnt guess the word, ask player for a letter guess
 		if gameStatus == "continue":
 			print "Didnt code for guessing letters"
+			guessLetter()
 
 	# #
 	# Deciding game status
@@ -107,6 +108,23 @@ def guessWord(word,tries):
 		drawPerson[tries]
 		tries += 1
 		return "continue", tries
+
+def guessLetter(wordNoDup,tries):
+	guessedLetter = raw_input("Guess a letter:")
+	letterBool = false
+	correctindex = []
+	for i in wordNoDup:
+		if guessedLetter.upper() == i:
+			letterBool = true
+			correctindex.append(i)
+
+
+	if letterBool == false:
+		tries += 1
+		return "continue", tries
+	else:
+		return "continue", guessedLetter, correctindex
+
 
 def drawHead():
         head = turtle.Turtle()
