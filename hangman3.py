@@ -104,7 +104,7 @@ def guessWord(word,tries):
 		return "win", tries
 	else:
 		print "That's not correct!"
-		drawPerson[tries]
+		eval(drawPerson[tries])()
 		tries += 1
 		return "continue", tries
 
@@ -154,6 +154,6 @@ def drawArmR():
         armR.pendown()
         armR.forward(50)
 
-drawPerson = [drawHead(),drawBody(), drawLegL(), drawLegR(),drawArmL(),drawArmR()]
+drawPerson = ["drawHead", "drawBody", "drawLegL","drawLegR","drawArmL","drawArmR"]
 
 main()
