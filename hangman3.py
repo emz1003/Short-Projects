@@ -24,7 +24,7 @@ def main():
 
 	##
 	# gameGo() :
-	gameGo(word)
+	gameGo(word,wordNoDup)
 
 #----------------------------------------------------------------------------------------#
 #										    SETUP
@@ -69,7 +69,7 @@ def drawNoose():
 # 											GAMEGO
 #----------------------------------------------------------------------------------------#
 
-def gameGo(word):
+def gameGo(word,wordNoDup):
 	tries = 0
 	## @gameStatus can be of three strings: "continue", "win", "lose"
 	gameStatus = "continue"
@@ -78,7 +78,10 @@ def gameGo(word):
 		guessWordBool = raw_input("Do you want to guess the word? y/n: ")
 
 		if guessWordBool == "y":
-			gameStatus = guessWord(word,tries)[0]
+			results = guessWord(word,tries)
+			gameStatus = results[0]
+			tries = results[1]
+		print "After guessing word, the number of tries are: " + str(tries)
 #			print guessWord(word, tries)
 
 		## Player guessed correctly .  exit out of loop
@@ -87,8 +90,7 @@ def gameGo(word):
 
 		## If player didnt guess the word, ask player for a letter guess
 		if gameStatus == "continue":
-			print "Didnt code for guessing letters"
-			guessLetter()
+			guessLetter(wordNoDup,tries)
 
 	# #
 	# Deciding game status
@@ -111,21 +113,21 @@ def guessWord(word,tries):
 
 def guessLetter(wordNoDup,tries):
 	guessedLetter = raw_input("Guess a letter:")
-	letterBool = false
+	letterBool = False
 	correctindex = []
 	for i in wordNoDup:
 		if guessedLetter.upper() == i:
-			letterBool = true
+			letterBool = True
 			correctindex.append(i)
 
 
-	if letterBool == false:
+	if letterBool == False:
 		tries += 1
 		return "continue", tries
 	else:
 		return "continue", guessedLetter, correctindex
 
-
+# ---------------------------------------------------------------------------------#
 def drawHead():
         head = turtle.Turtle()
         head.penup()
@@ -171,7 +173,7 @@ def drawArmR():
         armR.left(45)
         armR.pendown()
         armR.forward(50)
-
+#----------------------------------------------------------------------------------#
 drawPerson = ["drawHead", "drawBody", "drawLegL","drawLegR","drawArmL","drawArmR"]
 
 main()
