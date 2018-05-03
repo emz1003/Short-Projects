@@ -13,13 +13,6 @@ def main():
 
 	print 100 * '\n'
 
-	##
-	# setup() : Major function that runs smaller functions of setting up
-	#
-	# Pre-condition: word has already been entered and modified
-	# PostCondition: A noose, wordbank and dashes for the correct
-	# 				 letters of @word will be drawn by turtles
-	#/
 	setup(word)
 
 	##
@@ -30,14 +23,20 @@ def main():
 #										    SETUP
 #----------------------------------------------------------------------------------------#
 
-
+##
+# setup() : Major function that runs smaller functions of setting up
+#
+# Pre-condition: word has already been entered and modified
+# PostCondition: A noose, wordbank and dashes for the correct
+# 				 letters of @word will be drawn by turtles
+#/
 def setup(word):
 	print "drawing noose"
 	drawNoose()
 
 #	personI = 0
 
-    # Draw the screen
+    ## Draw the screen
 	ticks = turtle.Turtle()
 	ticks.penup()
 	ticks.goto(-100,0)
@@ -71,6 +70,7 @@ def drawNoose():
 
 def gameGo(word,wordNoDup):
 	tries = 0
+
 	## @gameStatus can be of three strings: "continue", "win", "lose"
 	gameStatus = "continue"
 	while gameStatus == "continue" and tries <= 6:
